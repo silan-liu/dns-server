@@ -11,6 +11,7 @@
 		9D6C8F2A269161BD00DFD85D /* BytePacketBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F29269161BD00DFD85D /* BytePacketBuffer.swift */; };
 		9D6C8F2C2691730200DFD85D /* DNSHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F2B2691730200DFD85D /* DNSHeader.swift */; };
 		9D6C8F2E26917A1100DFD85D /* DNSQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F2D26917A1100DFD85D /* DNSQuestion.swift */; };
+		9D6C8F3026917AF900DFD85D /* DNSRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F2F26917AF900DFD85D /* DNSRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,7 @@
 		9D6C8F29269161BD00DFD85D /* BytePacketBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BytePacketBuffer.swift; sourceTree = "<group>"; };
 		9D6C8F2B2691730200DFD85D /* DNSHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSHeader.swift; sourceTree = "<group>"; };
 		9D6C8F2D26917A1100DFD85D /* DNSQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSQuestion.swift; sourceTree = "<group>"; };
+		9D6C8F2F26917AF900DFD85D /* DNSRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSRecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				9D6C8F29269161BD00DFD85D /* BytePacketBuffer.swift */,
 				9D6C8F2B2691730200DFD85D /* DNSHeader.swift */,
 				9D6C8F2D26917A1100DFD85D /* DNSQuestion.swift */,
+				9D6C8F2F26917AF900DFD85D /* DNSRecord.swift */,
 			);
 			path = DNSServer;
 			sourceTree = "<group>";
@@ -131,6 +134,7 @@
 				9D6C8F2C2691730200DFD85D /* DNSHeader.swift in Sources */,
 				9D6C8F2E26917A1100DFD85D /* DNSQuestion.swift in Sources */,
 				9D6C8F232691617200DFD85D /* main.swift in Sources */,
+				9D6C8F3026917AF900DFD85D /* DNSRecord.swift in Sources */,
 				9D6C8F2A269161BD00DFD85D /* BytePacketBuffer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
