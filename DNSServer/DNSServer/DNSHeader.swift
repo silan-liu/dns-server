@@ -73,7 +73,7 @@ extension DNSHeader {
         self.response = (a & (1 << 7)) > 0
         
         // opcode
-        self.opcode = (a >> 3 ) & 0xf
+        self.opcode = UInt8((a >> 3 ) & 0xf)
         
         // aa
         self.authoritativeAnswer = ((a >> 2) & 0x1) > 0
@@ -94,7 +94,7 @@ extension DNSHeader {
         self.z = ((b >> 4) & 0x7) > 0
 
         // rescode
-        self.response = (b & 0xf) > 0
+        self.resCode = ResultCode.init(rawValue: Int((b & 0xf))) ?? ResultCode.NoError
         
         // count
         self.questionCount = buffer.readU16()

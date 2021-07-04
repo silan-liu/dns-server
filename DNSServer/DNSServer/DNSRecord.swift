@@ -8,10 +8,24 @@
 import Foundation
 
 // ip 地址
-struct Ipv4Addr {
-    var num: [UInt8]
+struct Ipv4Addr: CustomDebugStringConvertible {
+    var nums: [UInt8]
+    
+    var debugDescription: String {
+        var desc = ""
+        for i in 0..<nums.count {
+            desc += "\(nums[i])"
+            
+            if i < nums.count - 1 {
+                desc += "."
+            }
+        }
+        
+        return desc
+    }
 }
 
+// 返回的记录结构
 enum DNSRecord {
     // (domain, qtype, data_len, ttl)
     case Unknown(String, UInt16, UInt16, UInt32)
@@ -21,7 +35,7 @@ enum DNSRecord {
 }
 
 extension DNSRecord {
-    func read(buffer: inout BytePacketBuffer) -> DNSRecord {
+    static func read(buffer: inout BytePacketBuffer) -> DNSRecord {
         // name
         let domainName = buffer.readDomainName()
         
@@ -39,6 +53,8 @@ extension DNSRecord {
         let dataLen = buffer.readU16()
         
         if case QueryType.A = queryType {
+            
+            // ip 地址，4 字节
             let ip = buffer.readU32()
             
             let d1 = UInt8((ip >> 24) & 0xf)
@@ -46,7 +62,7 @@ extension DNSRecord {
             let d3 = UInt8((ip >> 8) & 0xf)
             let d4 = UInt8(ip & 0xf)
             
-            let ipAddress = Ipv4Addr(num: [d1, d2, d3, d4])
+            let ipAddress = Ipv4Addr(nums: [d1, d2, d3, d4])
 
             return DNSRecord.A(domainName, ipAddress, ttl)
         }

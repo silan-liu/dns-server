@@ -31,7 +31,7 @@ extension BytePacketBuffer {
     
     // 读取一个字节，指针后移
     mutating func read() -> UInt8 {
-        if pos >= MaxBufferSize {
+        if pos >= buffer.count {
             print("End of buffer")
             return 0
         }
@@ -44,7 +44,7 @@ extension BytePacketBuffer {
     }
     
     func get(pos: Int) -> UInt8 {
-        if pos >= MaxBufferSize {
+        if pos >= buffer.count {
             print("End of buffer")
             return 0
         }
@@ -61,31 +61,32 @@ extension BytePacketBuffer {
     ///   - len: 长度
     /// - Returns: 数据数组
     func getRange(start: Int, len: Int) -> [UInt8] {
-        if start + len >= MaxBufferSize {
+        if start + len >= buffer.count {
             return []
         }
         
-        let res = buffer[start...start+len]
+        let res = buffer[start..<start+len]
         return Array(res)
     }
     
     // 读取 4 个字节
     mutating func readU32() -> UInt32 {
-        let b1 = read()
-        let b2 = read()
-        let b3 = read()
-        let b4 = read()
+        let b1 = UInt32(read())
+        let b2 = UInt32(read())
+        let b3 = UInt32(read())
+        let b4 = UInt32(read())
 
         
-        return (UInt32(b1 << 24) | UInt32(b2 << 16) | UInt32(b3 << 8) | UInt32(b4))
+        return ((b1 << 24) | (b2 << 16) | (b3 << 8) | (b4))
     }
     
     // 读取 2 个字节
     mutating func readU16() -> UInt16 {
-        let b1 = read()
+        let b1 = UInt16(read())
         let b2 = UInt16(read())
         
-        return (UInt16(b1 << 8) | b2)
+        let result = ((b1 << 8) | b2)
+        return result
     }
     
     
@@ -136,6 +137,7 @@ extension BytePacketBuffer {
                 //  去除高 2 位，得到跳转偏移数据
                 let offset = Int(((len ^ 0xc0) << 8) | b2)
                 
+                // 重新循环
                 curPos = offset
                 
                 jumped = true
@@ -157,10 +159,7 @@ extension BytePacketBuffer {
                 // 读取相应长度数据
                 let data = getRange(start: curPos, len: Int(len))
                 
-                let name  = data.withUnsafeBufferPointer { ptr -> String in
-                 let s = String(cString: ptr.baseAddress!)
-                    return s
-                }
+                let name = String(bytes: data, encoding: .ascii) ?? ""
                                 
                 domain += name
                 

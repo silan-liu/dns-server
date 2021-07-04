@@ -13,10 +13,10 @@ enum QueryType: Int {
     case A = 1
 }
 
-
+// 查询结构
 struct DNSQuestion {
-    var name: String
-    var type: QueryType
+    var name: String = ""
+    var type: QueryType = QueryType.Unknown
 }
 
 extension DNSQuestion {

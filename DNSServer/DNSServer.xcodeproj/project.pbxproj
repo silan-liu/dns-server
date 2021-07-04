@@ -12,17 +12,20 @@
 		9D6C8F2C2691730200DFD85D /* DNSHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F2B2691730200DFD85D /* DNSHeader.swift */; };
 		9D6C8F2E26917A1100DFD85D /* DNSQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F2D26917A1100DFD85D /* DNSQuestion.swift */; };
 		9D6C8F3026917AF900DFD85D /* DNSRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F2F26917AF900DFD85D /* DNSRecord.swift */; };
+		9D6C8F3226917FCA00DFD85D /* DNSPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F3126917FCA00DFD85D /* DNSPacket.swift */; };
+		9D6C8F342691940800DFD85D /* response_packet.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D6C8F332691817D00DFD85D /* response_packet.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		9D6C8F1D2691617200DFD85D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				9D6C8F342691940800DFD85D /* response_packet.txt in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -33,6 +36,8 @@
 		9D6C8F2B2691730200DFD85D /* DNSHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSHeader.swift; sourceTree = "<group>"; };
 		9D6C8F2D26917A1100DFD85D /* DNSQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSQuestion.swift; sourceTree = "<group>"; };
 		9D6C8F2F26917AF900DFD85D /* DNSRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSRecord.swift; sourceTree = "<group>"; };
+		9D6C8F3126917FCA00DFD85D /* DNSPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSPacket.swift; sourceTree = "<group>"; };
+		9D6C8F332691817D00DFD85D /* response_packet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = response_packet.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,11 +70,13 @@
 		9D6C8F212691617200DFD85D /* DNSServer */ = {
 			isa = PBXGroup;
 			children = (
+				9D6C8F332691817D00DFD85D /* response_packet.txt */,
 				9D6C8F222691617200DFD85D /* main.swift */,
 				9D6C8F29269161BD00DFD85D /* BytePacketBuffer.swift */,
 				9D6C8F2B2691730200DFD85D /* DNSHeader.swift */,
 				9D6C8F2D26917A1100DFD85D /* DNSQuestion.swift */,
 				9D6C8F2F26917AF900DFD85D /* DNSRecord.swift */,
+				9D6C8F3126917FCA00DFD85D /* DNSPacket.swift */,
 			);
 			path = DNSServer;
 			sourceTree = "<group>";
@@ -136,6 +143,7 @@
 				9D6C8F232691617200DFD85D /* main.swift in Sources */,
 				9D6C8F3026917AF900DFD85D /* DNSRecord.swift in Sources */,
 				9D6C8F2A269161BD00DFD85D /* BytePacketBuffer.swift in Sources */,
+				9D6C8F3226917FCA00DFD85D /* DNSPacket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

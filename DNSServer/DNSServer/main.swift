@@ -7,5 +7,22 @@
 
 import Foundation
 
-print("Hello, World!")
+let path = "response_packet.txt"
+
+let url = URL(fileURLWithPath: path)
+
+do {
+    let data = try Data(contentsOf: url)
+
+    let bytes: [UInt8] = Array(data)
+
+    var bytebuffer = BytePacketBuffer(buffer: bytes)
+    
+    let packet = DNSPacket.fromBuffer(buffer: &bytebuffer)
+    
+    print("\(packet)")
+} catch  {
+    print("read file error \(error)")
+}
+
 
