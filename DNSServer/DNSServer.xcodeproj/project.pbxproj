@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9D6C8F232691617200DFD85D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F222691617200DFD85D /* main.swift */; };
+		9D6C8F2A269161BD00DFD85D /* BytePacketBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F29269161BD00DFD85D /* BytePacketBuffer.swift */; };
+		9D6C8F2C2691730200DFD85D /* DNSHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F2B2691730200DFD85D /* DNSHeader.swift */; };
+		9D6C8F2E26917A1100DFD85D /* DNSQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F2D26917A1100DFD85D /* DNSQuestion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		9D6C8F1F2691617200DFD85D /* DNSServer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DNSServer; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6C8F222691617200DFD85D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		9D6C8F29269161BD00DFD85D /* BytePacketBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BytePacketBuffer.swift; sourceTree = "<group>"; };
+		9D6C8F2B2691730200DFD85D /* DNSHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSHeader.swift; sourceTree = "<group>"; };
+		9D6C8F2D26917A1100DFD85D /* DNSQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSQuestion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				9D6C8F222691617200DFD85D /* main.swift */,
+				9D6C8F29269161BD00DFD85D /* BytePacketBuffer.swift */,
+				9D6C8F2B2691730200DFD85D /* DNSHeader.swift */,
+				9D6C8F2D26917A1100DFD85D /* DNSQuestion.swift */,
 			);
 			path = DNSServer;
 			sourceTree = "<group>";
@@ -119,7 +128,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D6C8F2C2691730200DFD85D /* DNSHeader.swift in Sources */,
+				9D6C8F2E26917A1100DFD85D /* DNSQuestion.swift in Sources */,
 				9D6C8F232691617200DFD85D /* main.swift in Sources */,
+				9D6C8F2A269161BD00DFD85D /* BytePacketBuffer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
