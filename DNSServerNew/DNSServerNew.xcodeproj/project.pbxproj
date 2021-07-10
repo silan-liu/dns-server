@@ -64,11 +64,11 @@
 		9D6C8F7E2699A55900DFD85D /* DNSServerNewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSServerNewUITests.swift; sourceTree = "<group>"; };
 		9D6C8F802699A55900DFD85D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D6C8F8C2699A59300DFD85D /* DNSServerNew-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DNSServerNew-Bridging-Header.h"; sourceTree = "<group>"; };
-		9D6C8F8D2699A59400DFD85D /* BytePacketBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BytePacketBuffer.swift; path = ../../DNSServer/DNSServer/BytePacketBuffer.swift; sourceTree = "<group>"; };
-		9D6C8F8E2699A59400DFD85D /* DNSRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DNSRecord.swift; path = ../../DNSServer/DNSServer/DNSRecord.swift; sourceTree = "<group>"; };
-		9D6C8F8F2699A59400DFD85D /* DNSPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DNSPacket.swift; path = ../../DNSServer/DNSServer/DNSPacket.swift; sourceTree = "<group>"; };
-		9D6C8F912699A59400DFD85D /* DNSQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DNSQuestion.swift; path = ../../DNSServer/DNSServer/DNSQuestion.swift; sourceTree = "<group>"; };
-		9D6C8F942699A59400DFD85D /* DNSHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DNSHeader.swift; path = ../../DNSServer/DNSServer/DNSHeader.swift; sourceTree = "<group>"; };
+		9D6C8F8D2699A59400DFD85D /* BytePacketBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytePacketBuffer.swift; sourceTree = "<group>"; };
+		9D6C8F8E2699A59400DFD85D /* DNSRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSRecord.swift; sourceTree = "<group>"; };
+		9D6C8F8F2699A59400DFD85D /* DNSPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSPacket.swift; sourceTree = "<group>"; };
+		9D6C8F912699A59400DFD85D /* DNSQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSQuestion.swift; sourceTree = "<group>"; };
+		9D6C8F942699A59400DFD85D /* DNSHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSHeader.swift; sourceTree = "<group>"; };
 		9D6C8F9F2699A5C600DFD85D /* response_packet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = response_packet.txt; path = ../../DNSServer/DNSServer/response_packet.txt; sourceTree = "<group>"; };
 		CDC5A167EF8FB08CD09624CB /* Pods-DNSServerNew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNSServerNew.release.xcconfig"; path = "Target Support Files/Pods-DNSServerNew/Pods-DNSServerNew.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,12 +149,8 @@
 		9D6C8F5F2699A55600DFD85D /* DNSServerNew */ = {
 			isa = PBXGroup;
 			children = (
-				9D6C8F8D2699A59400DFD85D /* BytePacketBuffer.swift */,
-				9D6C8F942699A59400DFD85D /* DNSHeader.swift */,
+				9D6C8FA12699AF6B00DFD85D /* Core */,
 				9D6C8F9F2699A5C600DFD85D /* response_packet.txt */,
-				9D6C8F8F2699A59400DFD85D /* DNSPacket.swift */,
-				9D6C8F912699A59400DFD85D /* DNSQuestion.swift */,
-				9D6C8F8E2699A59400DFD85D /* DNSRecord.swift */,
 				9D6C8F602699A55600DFD85D /* AppDelegate.swift */,
 				9D6C8F622699A55600DFD85D /* ViewController.swift */,
 				9D6C8F642699A55800DFD85D /* Assets.xcassets */,
@@ -182,6 +178,18 @@
 				9D6C8F802699A55900DFD85D /* Info.plist */,
 			);
 			path = DNSServerNewUITests;
+			sourceTree = "<group>";
+		};
+		9D6C8FA12699AF6B00DFD85D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				9D6C8F8E2699A59400DFD85D /* DNSRecord.swift */,
+				9D6C8F912699A59400DFD85D /* DNSQuestion.swift */,
+				9D6C8F8F2699A59400DFD85D /* DNSPacket.swift */,
+				9D6C8F942699A59400DFD85D /* DNSHeader.swift */,
+				9D6C8F8D2699A59400DFD85D /* BytePacketBuffer.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
