@@ -1,0 +1,6 @@
+framework module Pods_DNSServerNew {
+  umbrella header "Pods-DNSServerNew-umbrella.h"
+
+  export *
+  module * { export * }
+}

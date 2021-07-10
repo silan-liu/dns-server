@@ -64,7 +64,7 @@ extension DNSPacket {
         header.additionCount = UInt16(resources.count)
         
         header.write(buffer: &buffer)
-        
+                
         // questions
         for var question in questions {
             question.write(buffer: &buffer)

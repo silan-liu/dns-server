@@ -70,13 +70,13 @@ extension DNSHeader {
         let a = UInt8(flags >> 8)
         
         // qr
-        self.response = a & (1 << 7)
+        self.response = (a & (1 << 7)) > 0 ? 1 : 0
         
         // opcode
         self.opcode = UInt8((a >> 3) & 0xf)
         
         // aa
-        self.authoritativeAnswer = (a >> 2) & 0x1
+        self.authoritativeAnswer = ((a >> 2) & 0x1) > 0 ? 1 : 0
         
         // tc
         self.trancated = (a >> 1) & 0x1
@@ -88,7 +88,7 @@ extension DNSHeader {
         let b = UInt8(flags & 0xff)
         
         // ra
-        self.recursionAvailable = b & (1 << 7)
+        self.recursionAvailable = (b & (1 << 7)) > 0 ? 1: 0
 
         // z
         self.z = (b >> 4) & 0x7

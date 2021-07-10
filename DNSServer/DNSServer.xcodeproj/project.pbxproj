@@ -14,6 +14,17 @@
 		9D6C8F3026917AF900DFD85D /* DNSRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F2F26917AF900DFD85D /* DNSRecord.swift */; };
 		9D6C8F3226917FCA00DFD85D /* DNSPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F3126917FCA00DFD85D /* DNSPacket.swift */; };
 		9D6C8F342691940800DFD85D /* response_packet.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D6C8F332691817D00DFD85D /* response_packet.txt */; };
+		9D6C8F372699977200DFD85D /* SwiftSocket.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D6C8F35269996A700DFD85D /* SwiftSocket.framework */; };
+		9D6C8F382699984C00DFD85D /* Pods_DNSServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C677EB085004705B9F7979 /* Pods_DNSServer.framework */; };
+		9D6C8F442699990E00DFD85D /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F3E2699990D00DFD85D /* ytcpsocket.c */; };
+		9D6C8F452699990E00DFD85D /* yudpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F3F2699990D00DFD85D /* yudpsocket.c */; };
+		9D6C8F462699990E00DFD85D /* TCPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F402699990D00DFD85D /* TCPClient.swift */; };
+		9D6C8F472699990E00DFD85D /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F412699990D00DFD85D /* Socket.swift */; };
+		9D6C8F482699990E00DFD85D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F422699990E00DFD85D /* Result.swift */; };
+		9D6C8F492699990E00DFD85D /* UDPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F432699990E00DFD85D /* UDPClient.swift */; };
+		9D6C8F4B2699A18400DFD85D /* UDPController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F4A2699A18400DFD85D /* UDPController.swift */; };
+		9D6C8F522699A43600DFD85D /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F4F2699A43600DFD85D /* GCDAsyncUdpSocket.m */; };
+		9D6C8F532699A43600DFD85D /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F512699A43600DFD85D /* GCDAsyncSocket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,6 +34,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				9D6C8F372699977200DFD85D /* SwiftSocket.framework in CopyFiles */,
 				9D6C8F342691940800DFD85D /* response_packet.txt in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -30,6 +42,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		47C677EB085004705B9F7979 /* Pods_DNSServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DNSServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F8D8E2977C33885A6639B1A /* Pods-DNSServer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNSServer.release.xcconfig"; path = "Target Support Files/Pods-DNSServer/Pods-DNSServer.release.xcconfig"; sourceTree = "<group>"; };
 		9D6C8F1F2691617200DFD85D /* DNSServer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DNSServer; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6C8F222691617200DFD85D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		9D6C8F29269161BD00DFD85D /* BytePacketBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BytePacketBuffer.swift; sourceTree = "<group>"; };
@@ -38,6 +52,20 @@
 		9D6C8F2F26917AF900DFD85D /* DNSRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSRecord.swift; sourceTree = "<group>"; };
 		9D6C8F3126917FCA00DFD85D /* DNSPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSPacket.swift; sourceTree = "<group>"; };
 		9D6C8F332691817D00DFD85D /* response_packet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = response_packet.txt; sourceTree = "<group>"; };
+		9D6C8F35269996A700DFD85D /* SwiftSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D6C8F3D2699990D00DFD85D /* DNSServer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DNSServer-Bridging-Header.h"; sourceTree = "<group>"; };
+		9D6C8F3E2699990D00DFD85D /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ytcpsocket.c; path = SwiftSocket/ytcpsocket.c; sourceTree = "<group>"; };
+		9D6C8F3F2699990D00DFD85D /* yudpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = yudpsocket.c; path = SwiftSocket/yudpsocket.c; sourceTree = "<group>"; };
+		9D6C8F402699990D00DFD85D /* TCPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TCPClient.swift; path = SwiftSocket/TCPClient.swift; sourceTree = "<group>"; };
+		9D6C8F412699990D00DFD85D /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socket.swift; path = SwiftSocket/Socket.swift; sourceTree = "<group>"; };
+		9D6C8F422699990E00DFD85D /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = SwiftSocket/Result.swift; sourceTree = "<group>"; };
+		9D6C8F432699990E00DFD85D /* UDPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UDPClient.swift; path = SwiftSocket/UDPClient.swift; sourceTree = "<group>"; };
+		9D6C8F4A2699A18400DFD85D /* UDPController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPController.swift; sourceTree = "<group>"; };
+		9D6C8F4E2699A43600DFD85D /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		9D6C8F4F2699A43600DFD85D /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		9D6C8F502699A43600DFD85D /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		9D6C8F512699A43600DFD85D /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		DE1ED45695A7C7E36133F881 /* Pods-DNSServer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNSServer.debug.xcconfig"; path = "Target Support Files/Pods-DNSServer/Pods-DNSServer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,17 +73,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D6C8F382699984C00DFD85D /* Pods_DNSServer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		860A16F7DC62D0357C1D82FC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DE1ED45695A7C7E36133F881 /* Pods-DNSServer.debug.xcconfig */,
+				8F8D8E2977C33885A6639B1A /* Pods-DNSServer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9D6C8F162691617200DFD85D = {
 			isa = PBXGroup;
 			children = (
 				9D6C8F212691617200DFD85D /* DNSServer */,
 				9D6C8F202691617200DFD85D /* Products */,
+				860A16F7DC62D0357C1D82FC /* Pods */,
+				DC79B9B58EA71EEA5530C970 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,15 +110,36 @@
 		9D6C8F212691617200DFD85D /* DNSServer */ = {
 			isa = PBXGroup;
 			children = (
+				9D6C8F422699990E00DFD85D /* Result.swift */,
+				9D6C8F412699990D00DFD85D /* Socket.swift */,
+				9D6C8F402699990D00DFD85D /* TCPClient.swift */,
+				9D6C8F432699990E00DFD85D /* UDPClient.swift */,
+				9D6C8F3E2699990D00DFD85D /* ytcpsocket.c */,
+				9D6C8F3F2699990D00DFD85D /* yudpsocket.c */,
 				9D6C8F332691817D00DFD85D /* response_packet.txt */,
 				9D6C8F222691617200DFD85D /* main.swift */,
 				9D6C8F29269161BD00DFD85D /* BytePacketBuffer.swift */,
+				9D6C8F4E2699A43600DFD85D /* GCDAsyncSocket.h */,
+				9D6C8F512699A43600DFD85D /* GCDAsyncSocket.m */,
+				9D6C8F502699A43600DFD85D /* GCDAsyncUdpSocket.h */,
+				9D6C8F4F2699A43600DFD85D /* GCDAsyncUdpSocket.m */,
 				9D6C8F2B2691730200DFD85D /* DNSHeader.swift */,
 				9D6C8F2D26917A1100DFD85D /* DNSQuestion.swift */,
 				9D6C8F2F26917AF900DFD85D /* DNSRecord.swift */,
 				9D6C8F3126917FCA00DFD85D /* DNSPacket.swift */,
+				9D6C8F3D2699990D00DFD85D /* DNSServer-Bridging-Header.h */,
+				9D6C8F4A2699A18400DFD85D /* UDPController.swift */,
 			);
 			path = DNSServer;
+			sourceTree = "<group>";
+		};
+		DC79B9B58EA71EEA5530C970 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D6C8F35269996A700DFD85D /* SwiftSocket.framework */,
+				47C677EB085004705B9F7979 /* Pods_DNSServer.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -88,6 +149,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D6C8F262691617200DFD85D /* Build configuration list for PBXNativeTarget "DNSServer" */;
 			buildPhases = (
+				345E4C63337EACC3D91349AD /* [CP] Check Pods Manifest.lock */,
 				9D6C8F1B2691617200DFD85D /* Sources */,
 				9D6C8F1C2691617200DFD85D /* Frameworks */,
 				9D6C8F1D2691617200DFD85D /* CopyFiles */,
@@ -112,6 +174,7 @@
 				TargetAttributes = {
 					9D6C8F1E2691617200DFD85D = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -133,17 +196,51 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		345E4C63337EACC3D91349AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DNSServer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9D6C8F1B2691617200DFD85D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D6C8F452699990E00DFD85D /* yudpsocket.c in Sources */,
 				9D6C8F2C2691730200DFD85D /* DNSHeader.swift in Sources */,
+				9D6C8F472699990E00DFD85D /* Socket.swift in Sources */,
+				9D6C8F462699990E00DFD85D /* TCPClient.swift in Sources */,
+				9D6C8F522699A43600DFD85D /* GCDAsyncUdpSocket.m in Sources */,
 				9D6C8F2E26917A1100DFD85D /* DNSQuestion.swift in Sources */,
+				9D6C8F532699A43600DFD85D /* GCDAsyncSocket.m in Sources */,
 				9D6C8F232691617200DFD85D /* main.swift in Sources */,
+				9D6C8F492699990E00DFD85D /* UDPClient.swift in Sources */,
 				9D6C8F3026917AF900DFD85D /* DNSRecord.swift in Sources */,
 				9D6C8F2A269161BD00DFD85D /* BytePacketBuffer.swift in Sources */,
 				9D6C8F3226917FCA00DFD85D /* DNSPacket.swift in Sources */,
+				9D6C8F442699990E00DFD85D /* ytcpsocket.c in Sources */,
+				9D6C8F4B2699A18400DFD85D /* UDPController.swift in Sources */,
+				9D6C8F482699990E00DFD85D /* Result.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,22 +364,47 @@
 		};
 		9D6C8F272691617200DFD85D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE1ED45695A7C7E36133F881 /* Pods-DNSServer.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3JYQ7F95H;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DNSServer",
+				);
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DNSServer/DNSServer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		9D6C8F282691617200DFD85D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F8D8E2977C33885A6639B1A /* Pods-DNSServer.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3JYQ7F95H;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DNSServer",
+				);
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DNSServer/DNSServer-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

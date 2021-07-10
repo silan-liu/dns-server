@@ -40,6 +40,6 @@ extension DNSQuestion {
         buffer.writeU16(value: UInt16(type.rawValue))
         
         // class，默认 1
-        buffer.write(value: 1)
+        buffer.writeU16(value: 1)
     }
 }

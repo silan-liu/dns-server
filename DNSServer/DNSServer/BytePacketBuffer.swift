@@ -56,6 +56,9 @@ extension BytePacketBuffer {
         return res
     }
     
+    func getCurrentRange() -> [UInt8] {
+        return getRange(start: 0, len: pos)
+    }
     
     /// 读取指定区间数据
     /// - Parameters:
