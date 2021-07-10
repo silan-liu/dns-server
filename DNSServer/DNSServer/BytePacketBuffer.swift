@@ -21,6 +21,8 @@ extension BytePacketBuffer {
         pos = 0
     }
 
+    //MARK: - read
+    
     mutating func step(step: Int) {
         pos += step
     }
@@ -176,5 +178,75 @@ extension BytePacketBuffer {
         }
         
         return domain
+    }
+    
+    //MARK: - write
+
+    /// 写入 8 位无符号整数
+    /// - Parameter value: 8 位无符号整数
+    mutating func write(value: UInt8) {
+        if self.pos >= MaxBufferSize {
+            print("Exceed max size of buffer")
+            return
+        }
+        
+        buffer[pos] = value
+        pos += 1
+    }
+    
+    /// 写入 8 位无符号整数
+    /// - Parameter value: 8 位无符号整数
+    mutating func writeU8(value: UInt8) {
+        write(value: value)
+    }
+    
+    /// 写入 16 位无符号整数
+    /// - Parameter value: 16 位无符号整数
+    mutating func writeU16(value: UInt16) {
+        // 高 8 位
+        let h8 = UInt8(value >> 8)
+        write(value: h8)
+        
+        // 低 8 位
+        let l8 = UInt8(value & 0xff)
+        write(value: l8)
+    }
+    
+    /// 写入 32 位无符号整数
+    /// - Parameter value: 32 位无符号整数
+    mutating func writeU32(value: UInt32) {
+        // 最高 8 位
+        write(value: UInt8(value >> 24))
+        write(value: UInt8(value >> 16))
+        write(value: UInt8(value >> 8))
+        write(value: UInt8(value & 0xff))
+    }
+    
+    
+    /// 写入域名
+    /// - Parameter domain: 域名
+    mutating func writeDomain(domain: String) {
+        let components = domain.split(separator: ".")
+        for label in components {
+            let len = label.count
+            
+            if len > 0x3f {
+                print("label len exceeds 63 characters")
+                continue
+            }
+            
+            // 写入数据长度
+            write(value: UInt8(len))
+            
+            // 写入数据
+            for char in label {
+                if let asciiValue = char.asciiValue {
+                    write(value: UInt8(asciiValue))
+                }
+            }
+        }
+        
+        // 写入结束符 0
+        write(value: 0)
     }
 }

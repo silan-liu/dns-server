@@ -31,4 +31,15 @@ extension DNSQuestion {
         // class
         _ = buffer.readU16()
     }
+    
+    mutating func write(buffer: inout BytePacketBuffer) {
+        // name
+        buffer.writeDomain(domain: name)
+        
+        // type
+        buffer.writeU16(value: UInt16(type.rawValue))
+        
+        // class，默认 1
+        buffer.write(value: 1)
+    }
 }

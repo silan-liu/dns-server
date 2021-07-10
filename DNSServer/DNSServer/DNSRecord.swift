@@ -51,7 +51,7 @@ extension DNSRecord {
         
         // data_len
         let dataLen = buffer.readU16()
-        
+                
         if case QueryType.A = queryType {
             
             // ip 地址，4 字节
@@ -68,5 +68,34 @@ extension DNSRecord {
         }
         
         return DNSRecord.Unknown(domainName, type, dataLen, ttl)
+    }
+    
+    func write(buffer: inout BytePacketBuffer) {
+        switch self {
+        case let .A(domain, ip, ttl):
+            // domain
+            buffer.writeDomain(domain: domain)
+            
+            // qtype
+            buffer.writeU16(value: UInt16(QueryType.A.rawValue))
+            
+            // class
+            buffer.writeU8(value: 1)
+
+            // ttl
+            buffer.writeU32(value: ttl)
+            
+            // data_len
+            buffer.writeU16(value: 4)
+            
+            // ip
+            for num in ip.nums {
+                buffer.writeU8(value: num)
+            }
+            
+        default:
+            print("it is not a valid record, skipping...")
+            break
+        }
     }
 }

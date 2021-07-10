@@ -55,4 +55,34 @@ extension DNSPacket {
         
         return packet
     }
+    
+    mutating func write(buffer: inout BytePacketBuffer) {
+        // header count 赋值
+        header.questionCount = UInt16(questions.count)
+        header.answerCount = UInt16(answers.count)
+        header.nsCount = UInt16(authorities.count)
+        header.additionCount = UInt16(resources.count)
+        
+        header.write(buffer: &buffer)
+        
+        // questions
+        for var question in questions {
+            question.write(buffer: &buffer)
+        }
+        
+        // answers
+        for answer in answers {
+            answer.write(buffer: &buffer)
+        }
+        
+        // authority
+        for authority in authorities {
+            authority.write(buffer: &buffer)
+        }
+        
+        // resource
+        for resource in resources {
+            resource.write(buffer: &buffer)
+        }
+    }
 }
