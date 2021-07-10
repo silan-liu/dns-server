@@ -1,6 +1,0 @@
-framework module Pods_DNSServerNewTests {
-  umbrella header "Pods-DNSServerNewTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
