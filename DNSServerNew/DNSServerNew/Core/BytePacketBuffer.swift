@@ -219,9 +219,9 @@ extension BytePacketBuffer {
     /// - Parameter value: 32 位无符号整数
     mutating func writeU32(value: UInt32) {
         // 最高 8 位
-        write(value: UInt8(value >> 24))
-        write(value: UInt8(value >> 16))
-        write(value: UInt8(value >> 8))
+        write(value: UInt8(value >> 24) & 0xff)
+        write(value: UInt8(value >> 16) & 0xff)
+        write(value: UInt8(value >> 8) & 0xff)
         write(value: UInt8(value & 0xff))
     }
     

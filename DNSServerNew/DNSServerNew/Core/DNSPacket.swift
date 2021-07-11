@@ -63,6 +63,7 @@ extension DNSPacket {
         header.nsCount = UInt16(authorities.count)
         header.additionCount = UInt16(resources.count)
         
+        // 写入
         header.write(buffer: &buffer)
                 
         // questions
