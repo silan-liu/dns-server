@@ -10,7 +10,7 @@ import CocoaAsyncSocket
 
 class ViewController: NSViewController, GCDAsyncUdpSocketDelegate {
 
-    var udpSocket: GCDAsyncUdpSocket {
+    lazy var udpSocket: GCDAsyncUdpSocket = {
         let socket = GCDAsyncUdpSocket(delegate: self, delegateQueue: DispatchQueue.main)
         
         do {
@@ -22,7 +22,7 @@ class ViewController: NSViewController, GCDAsyncUdpSocketDelegate {
         }
         
         return socket
-    }
+    }()
     
     
     override func viewDidLoad() {
