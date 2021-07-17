@@ -11,6 +11,10 @@ import Foundation
 enum QueryType: Int {
     case Unknown = -1
     case A = 1
+    case NS = 2
+    case CNAME = 5
+    case MX = 15
+    case AAAA = 28
 }
 
 // 查询结构

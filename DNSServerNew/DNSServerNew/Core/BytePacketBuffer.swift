@@ -252,4 +252,22 @@ extension BytePacketBuffer {
         // 写入结束符 0
         write(value: 0)
     }
+    
+    /// 更新某个位置的值
+    /// - Parameters:
+    ///   - pos: 位置
+    ///   - val: 值
+    mutating func set(pos: Int, value: UInt8) {
+        if pos >= 0 && pos < buffer.count {
+            buffer[pos] = value
+        }
+    }
+    
+    mutating func setU16(pos: Int, value: UInt16) {
+        let h8 = UInt8((value >> 8) & 0xff)
+        let l8 = UInt8(value & 0xff)
+        
+        set(pos: pos, value: h8)
+        set(pos: pos + 1, value: l8)
+    }
 }

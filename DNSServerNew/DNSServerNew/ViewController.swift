@@ -60,7 +60,10 @@ class ViewController: NSViewController, GCDAsyncUdpSocketDelegate {
     
     /// 向服务器查询 google.com 的 ip 地址
     @IBAction func query(sender: NSButton) {
-        let domain = "google.com"
+
+        let domain = "yahoo.com"
+
+//        let domain = "google.com"
         let queryType = QueryType.A
 
         // 发送的包
