@@ -57,10 +57,10 @@ extension DNSRecord {
             // ip 地址，4 字节
             let ip = buffer.readU32()
             
-            let d1 = UInt8((ip >> 24) & 0xf)
-            let d2 = UInt8((ip >> 16) & 0xf)
-            let d3 = UInt8((ip >> 8) & 0xf)
-            let d4 = UInt8(ip & 0xf)
+            let d1 = UInt8((ip >> 24) & 0xff)
+            let d2 = UInt8((ip >> 16) & 0xff)
+            let d3 = UInt8((ip >> 8) & 0xff)
+            let d4 = UInt8(ip & 0xff)
             
             let ipAddress = Ipv4Addr(nums: [d1, d2, d3, d4])
 
