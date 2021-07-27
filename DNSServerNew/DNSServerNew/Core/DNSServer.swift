@@ -12,7 +12,8 @@ class DNSServer: NSObject, GCDAsyncUdpSocketDelegate {
     
     var completion: ((DNSPacket) -> ())?
     
-    lazy var udpSocket: GCDAsyncUdpSocket = {
+    // client socket
+    lazy var clientSocket: GCDAsyncUdpSocket = {
         let socket = GCDAsyncUdpSocket(delegate: self, delegateQueue: DispatchQueue.main)
         
         do {
@@ -26,7 +27,7 @@ class DNSServer: NSObject, GCDAsyncUdpSocketDelegate {
         return socket
     }()
     
-    // udp server
+    // server socket
     lazy var serverSocket: GCDAsyncUdpSocket = {
         let socket = GCDAsyncUdpSocket(delegate: self, delegateQueue: DispatchQueue.main)
         
@@ -77,7 +78,7 @@ class DNSServer: NSObject, GCDAsyncUdpSocketDelegate {
         
         // 发送数据
         let data = Data(reqBuffer.getCurrentRange())
-        udpSocket.send(data, toHost: "8.8.8.8", port: 53, withTimeout: 10, tag: 1)
+        clientSocket.send(data, toHost: "8.8.8.8", port: 53, withTimeout: 10, tag: 1)
     }
     
     func handleQuery(request: DNSPacket, address: Data) {
@@ -108,27 +109,28 @@ class DNSServer: NSObject, GCDAsyncUdpSocketDelegate {
                 
                 packet.resources.append(contentsOf: resultPacket.resources)
                 
-                // 转成二进制
-                var rspBuffer = BytePacketBuffer()
-                packet.write(buffer: &rspBuffer)
-                
-                let data = Data(rspBuffer.getCurrentRange())
-
-                // 返回给客户端
-                self.serverSocket.send(data, toAddress: address, withTimeout: 10, tag: 2)
+                // 发送回包
+                self.sendRspPacket(packet: &packet, address: address)
             }
         } else {
-            packet.header.resCode = ResultCode.ServFail
+            packet.header.resCode = ResultCode.FormError
             
-            // 转成二进制
-            var rspBuffer = BytePacketBuffer()
-            packet.write(buffer: &rspBuffer)
-            
-            let data = Data(rspBuffer.getCurrentRange())
-
-            // 返回给客户端
-            self.serverSocket.send(data, toAddress: address, withTimeout: 10, tag: 2)
+            // 发送回包
+            self.sendRspPacket(packet: &packet, address: address)
         }
+    }
+    
+    // 发送回包给客户端
+    func sendRspPacket(packet: inout DNSPacket, address: Data) {
+        
+        // 转成二进制
+        var rspBuffer = BytePacketBuffer()
+        packet.write(buffer: &rspBuffer)
+        
+        let data = Data(rspBuffer.getCurrentRange())
+        
+        // 返回数据给客户端
+        self.serverSocket.send(data, toAddress: address, withTimeout: 10, tag: 2)
     }
 
     //MARK: - GCDAsyncUdpSocketDelegate
@@ -151,7 +153,7 @@ class DNSServer: NSObject, GCDAsyncUdpSocketDelegate {
             // 处理查询包
             handleQuery(request: packet, address: address)
             
-        } else if sock == udpSocket {
+        } else if sock == clientSocket {
             print("receive response packet:\(packet)")
             
             // 查询结果
