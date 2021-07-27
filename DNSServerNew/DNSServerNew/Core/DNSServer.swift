@@ -78,7 +78,7 @@ class DNSServer: NSObject, GCDAsyncUdpSocketDelegate {
         
         // 发送数据
         let data = Data(reqBuffer.getCurrentRange())
-        clientSocket.send(data, toHost: "8.8.8.8", port: 53, withTimeout: 10, tag: 1)
+        clientSocket.send(data, toHost: "8.8.8.8", port: 53, withTimeout: 30, tag: 1)
     }
     
     func handleQuery(request: DNSPacket, address: Data) {
@@ -100,14 +100,18 @@ class DNSServer: NSObject, GCDAsyncUdpSocketDelegate {
                 
                 // 将查询到的数据填充到响应包中
                 packet.questions.append(question)
+                packet.header.questionCount = 1
                 
                 packet.header.resCode = request.header.resCode
-                
+
                 packet.answers.append(contentsOf: resultPacket.answers)
-                
+                packet.header.answerCount = UInt16(resultPacket.answers.count)
+
                 packet.authorities.append(contentsOf: resultPacket.authorities)
-                
+                packet.header.nsCount = UInt16(resultPacket.authorities.count)
+
                 packet.resources.append(contentsOf: resultPacket.resources)
+                packet.header.additionCount = UInt16(resultPacket.resources.count)
                 
                 // 发送回包
                 self.sendRspPacket(packet: &packet, address: address)
@@ -128,9 +132,23 @@ class DNSServer: NSObject, GCDAsyncUdpSocketDelegate {
         packet.write(buffer: &rspBuffer)
         
         let data = Data(rspBuffer.getCurrentRange())
-        
+                        
         // 返回数据给客户端
-        self.serverSocket.send(data, toAddress: address, withTimeout: 10, tag: 2)
+        self.serverSocket.send(data, toAddress: address, withTimeout: 30, tag: 2)
+    }
+    
+    
+    /// 将二进制数据转换成 dns 包
+    /// - Parameter data: 二进制数据
+    /// - Returns: dns 包
+    func packetFromData(data: Data) -> DNSPacket {
+        let bytes: [UInt8] = Array(data)
+
+        var bytebuffer = BytePacketBuffer(buffer: bytes)
+        
+        let packet = DNSPacket.fromBuffer(buffer: &bytebuffer)
+        
+        return packet
     }
 
     //MARK: - GCDAsyncUdpSocketDelegate
@@ -140,11 +158,7 @@ class DNSServer: NSObject, GCDAsyncUdpSocketDelegate {
     
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
         
-        let bytes: [UInt8] = Array(data)
-
-        var bytebuffer = BytePacketBuffer(buffer: bytes)
-        
-        let packet = DNSPacket.fromBuffer(buffer: &bytebuffer)
+        let packet = packetFromData(data: data)
         
         if sock == serverSocket {
         

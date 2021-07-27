@@ -79,7 +79,7 @@ extension DNSRecord {
         
         // ttl
         let ttl = buffer.readU32()
-        
+                
         // data_len
         let dataLen = buffer.readU16()
         
@@ -92,7 +92,7 @@ extension DNSRecord {
             let d2 = UInt8((ip >> 16) & 0xff)
             let d3 = UInt8((ip >> 8) & 0xff)
             let d4 = UInt8(ip & 0xff)
-            
+                        
             let ipAddress = Ipv4Addr(nums: [d1, d2, d3, d4])
 
             return DNSRecord.A(domainName, ipAddress, ttl)
@@ -148,8 +148,8 @@ extension DNSRecord {
             buffer.writeU16(value: UInt16(QueryType.A.rawValue))
             
             // class
-            buffer.writeU8(value: 1)
-
+            buffer.writeU16(value: 1)
+            
             // ttl
             buffer.writeU32(value: ttl)
             
@@ -158,6 +158,7 @@ extension DNSRecord {
             
             // ip
             for num in ip.nums {
+                
                 buffer.writeU8(value: num)
             }
             
@@ -169,7 +170,7 @@ extension DNSRecord {
             buffer.writeU16(value: UInt16(QueryType.AAAA.rawValue))
             
             // class
-            buffer.writeU8(value: 1)
+            buffer.writeU16(value: 1)
 
             // ttl
             buffer.writeU32(value: ttl)
@@ -189,7 +190,7 @@ extension DNSRecord {
             buffer.writeU16(value: UInt16(QueryType.NS.rawValue))
             
             // class
-            buffer.writeU8(value: 1)
+            buffer.writeU16(value: 1)
 
             // ttl
             buffer.writeU32(value: ttl)
@@ -213,7 +214,7 @@ extension DNSRecord {
             buffer.writeU16(value: UInt16(QueryType.CNAME.rawValue))
             
             // class
-            buffer.writeU8(value: 1)
+            buffer.writeU16(value: 1)
 
             // ttl
             buffer.writeU32(value: ttl)
@@ -235,7 +236,7 @@ extension DNSRecord {
             buffer.writeU16(value: UInt16(QueryType.MX.rawValue))
             
             // class
-            buffer.writeU8(value: 1)
+            buffer.writeU16(value: 1)
 
             // ttl
             buffer.writeU32(value: ttl)
