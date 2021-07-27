@@ -20,6 +20,7 @@
 		9D6C8F992699A59400DFD85D /* DNSQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F912699A59400DFD85D /* DNSQuestion.swift */; };
 		9D6C8F9B2699A59400DFD85D /* DNSHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C8F942699A59400DFD85D /* DNSHeader.swift */; };
 		9D6C8FA32699B06900DFD85D /* response_packet.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9D6C8FA22699B06900DFD85D /* response_packet.txt */; };
+		9DFAF20026AF8F820084FA25 /* DNSServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFAF1FF26AF8F820084FA25 /* DNSServer.swift */; };
 		E156ABFF971216911E850EE1 /* Pods_DNSServerNew_DNSServerNewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B07F8B0BAD3271B77A131A /* Pods_DNSServerNew_DNSServerNewUITests.framework */; };
 		F332E311358454F37966A3DD /* Pods_DNSServerNew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A06406A0C15804426DA4AF3 /* Pods_DNSServerNew.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		9D6C8F912699A59400DFD85D /* DNSQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSQuestion.swift; sourceTree = "<group>"; };
 		9D6C8F942699A59400DFD85D /* DNSHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSHeader.swift; sourceTree = "<group>"; };
 		9D6C8FA22699B06900DFD85D /* response_packet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = response_packet.txt; sourceTree = "<group>"; };
+		9DFAF1FF26AF8F820084FA25 /* DNSServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSServer.swift; sourceTree = "<group>"; };
 		CDC5A167EF8FB08CD09624CB /* Pods-DNSServerNew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNSServerNew.release.xcconfig"; path = "Target Support Files/Pods-DNSServerNew/Pods-DNSServerNew.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +190,7 @@
 				9D6C8F8F2699A59400DFD85D /* DNSPacket.swift */,
 				9D6C8F942699A59400DFD85D /* DNSHeader.swift */,
 				9D6C8F8D2699A59400DFD85D /* BytePacketBuffer.swift */,
+				9DFAF1FF26AF8F820084FA25 /* DNSServer.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				9D6C8F632699A55600DFD85D /* ViewController.swift in Sources */,
 				9D6C8F982699A59400DFD85D /* DNSPacket.swift in Sources */,
 				9D6C8F972699A59400DFD85D /* DNSRecord.swift in Sources */,
+				9DFAF20026AF8F820084FA25 /* DNSServer.swift in Sources */,
 				9D6C8F612699A55600DFD85D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

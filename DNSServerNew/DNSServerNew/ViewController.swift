@@ -24,13 +24,17 @@ class ViewController: NSViewController, GCDAsyncUdpSocketDelegate {
         return socket
     }()
     
+    lazy var dnsServer: DNSServer = {
+        let server = DNSServer()
+        return server
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        
+        dnsServer.start()
     }
 
     override var representedObject: Any? {
