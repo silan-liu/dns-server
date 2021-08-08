@@ -86,4 +86,70 @@ extension DNSPacket {
             resource.write(buffer: &buffer)
         }
     }
+    
+    // 从返回的数据中，选择一个随机的 ip
+    func getRandomIP() -> Ipv4Addr? {
+        
+        let ipList = self.answers.compactMap { record -> Ipv4Addr? in
+            if case let DNSRecord.A(_, ip, _) = record {
+                return ip
+            }
+            
+            return nil
+        }
+        
+        let random = Int.random(in: 0..<ipList.count)
+
+        return ipList[random]
+    }
+    
+    // 返回域名对应的 NS 列表，类型元组，(domain, host)
+    // google.com.        172800    IN    NS    ns2.google.com.
+    func getNS(qname: String) -> Array<(String, String)>? {
+        let nsList = self.authorities.compactMap { record -> (String, String)? in
+            if case let DNSRecord.NS(domain, host, _) = record {
+                
+                // 如果要查询的域名以 ns 域名结尾，表明在该 ns 服务器的分管之下
+                if qname.hasSuffix(domain) {
+                    return (domain, host)
+                }
+            }
+            
+            return nil
+        }
+        
+       return nsList
+    }
+    
+    // 从 additon resource 中获取 ns 的 ip
+    // ns2.google.com.        172800    IN    A    216.239.34.10
+    func getResolvedNS(qname: String) -> Ipv4Addr? {
+     
+        if let nsList = getNS(qname: qname) {
+            // 每个 ns 去 resource 中查找 ip
+            for (_, host) in nsList {
+                let resultList = self.resources.compactMap { record -> Ipv4Addr? in
+                    if case let DNSRecord.A(domain, ip, _) = record {
+                        if host == domain {
+                            return ip
+                        }
+                    }
+                    
+                    return nil
+                }
+                
+                if resultList.count > 0 {
+                    return resultList.first
+                }
+            }
+        }
+        
+        
+        return nil
+    }
+    
+    // 如果 additon resource 没有 ns 的 ip，那么返回 ns 的 host，之后重新进行域名解析查询 ns 的 ip。
+    func getUnresolvedNS(qname: String) -> String? {
+        return getNS(qname: qname)?.first?.1
+    }
 }
